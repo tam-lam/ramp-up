@@ -24,7 +24,7 @@ class RampPlacerVC: UIViewController, ARSCNViewDelegate, UIPopoverPresentationCo
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ramps.scn")!
+        let scene = SCNScene(named: "art.scnassets/pipe.dae")!
         sceneView.scene = scene
         
         // Set the scene to the view
