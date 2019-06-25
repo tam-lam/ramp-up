@@ -28,7 +28,8 @@ class RampPickerVC: UIViewController {
         sceneView = SCNView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         
         view.insertSubview(sceneView, at: 0)
-        
+        preferredContentSize = size
+
         let scene = SCNScene(named: "art.scnassets/ramps.scn")!
         sceneView.scene = scene
         
@@ -36,14 +37,26 @@ class RampPickerVC: UIViewController {
         camera.usesOrthographicProjection = true
         scene.rootNode.camera = camera
         
-        let obj = SCNScene(named: "art.scnassets/pipe.dae")
-        let node = obj?.rootNode.childNode(withName: "pipe",recursively: true )
+        var obj = SCNScene(named: "art.scnassets/pipe.dae")
+        var node = obj?.rootNode.childNode(withName: "pipe",recursively: true )
         
         node?.scale = SCNVector3Make(0.0012, 0.0012, 0.0012)
         node?.position = SCNVector3Make(0, 0.7, 0)
         scene.rootNode.addChildNode(node!)
         
-        preferredContentSize = size
+        obj = SCNScene(named: "art.scnassets/pyramid.dae")
+        node = obj?.rootNode.childNode(withName: "pyramid",recursively: true )
+        node?.scale = SCNVector3Make(0.0032, 0.0032, 0.0032)
+        node?.position = SCNVector3Make(0, 0.3, 0)
+        scene.rootNode.addChildNode(node!)
+        
+        obj = SCNScene(named: "art.scnassets/quarter.dae")
+        node = obj?.rootNode.childNode(withName: "quarter",recursively: true )
+        node?.scale = SCNVector3Make(0.0032, 0.0032, 0.0032)
+        node?.position = SCNVector3Make(0, -0.2, 0)
+        scene.rootNode.addChildNode(node!)
+
+        
     }
     
     
